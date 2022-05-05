@@ -16,7 +16,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "desafiovoll"
           heroku_email: "hsrleandro@hotmail.com"
-          appdir: client
+          appdir: frontend
           usedocker: true
           stack: container
       - name: Build and Deploy Back-end
@@ -25,7 +25,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "desafiovollapi"
           heroku_email: "hsrleandro@hotmail.com"
-          appdir: server
+          appdir: backend
           usedocker: true
           stack: container
         env:
