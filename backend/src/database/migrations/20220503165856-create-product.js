@@ -19,6 +19,10 @@ module.exports = {
       role: {
         allowNull: false,
         type: Sequelize.STRING
+      },
+      balance: {
+        allowNull: false,
+        type: Sequelize.DOUBLE
       }
     });
 

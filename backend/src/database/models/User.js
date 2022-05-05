@@ -4,6 +4,7 @@ const User = (sequelize, DataTypes) => {
       email: DataTypes.STRING,
       password: DataTypes.STRING,
       role: DataTypes.STRING,
+      balance: DataTypes.DOUBLE,
     },
     {
       tableName: 'users',
