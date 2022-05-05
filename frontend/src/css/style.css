@@ -4,9 +4,44 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --mainColor: rgba(192,0,82,1);
+  --mainColorDisabled: rgb(192, 89, 134);
+  --secondColor: rgba(60,0,92,1);
 }
 
 .hero-title {
-  font-size: 1.5em;
+  font-size: 3em;
   margin: 15px;
+}
+
+.text-input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--mainColor);
+  color: white;
+  padding: 5px;
+  font-size: 1.5em;
+}
+
+.bot {
+  width: 100%;
+  font-size: 1.3em;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  margin: 15px;
+  background-color: var(--mainColor);
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.bot:disabled {
+  background-color: var(--mainColorDisabled);
+  cursor: auto;
 }

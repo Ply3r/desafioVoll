@@ -9,10 +9,27 @@
 .login-container {
   background-color: rgba(0, 0, 0, 0.2);
   width: 500px;
-  height: 700px;
   border-radius: 30px;
   padding: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.login-container > div {
+  margin-bottom: 15px;
+}
+
+.login-container p {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: white;
+  margin-top: 15px;
+}
+
+.login-title {
+  font-weight: 600;
+  color: white;
 }
