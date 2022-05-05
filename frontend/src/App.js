@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import MainProvider from './provider/mainProvider';
+import './css/style.css';
 
 function App() {
   return (

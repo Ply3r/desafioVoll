@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import '../css/login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isButtonActive, setIsButtonActive] = useState(false);
+  const navigate = useNavigate();
 
   const checkFields = () => {
     const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
@@ -16,6 +18,7 @@ const Login = () => {
 
   const makeRequest = () => {
     
+    navigate('/home');
   }
 
   useEffect(() => {
@@ -36,9 +39,12 @@ const Login = () => {
           onChange={ ({ target: { value } }) => setPassword(value) } 
           value={ password } 
         />
-        <Link to="/home">
-          <button disabled={ !isButtonActive }>Enter</button>
-        </Link>
+        <button
+          onClick={ makeRequest }
+          disabled={ !isButtonActive }
+        >
+          Enter
+        </button>
       </div>
     </div>
   )

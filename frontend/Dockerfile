@@ -3,6 +3,7 @@ WORKDIR /app
 COPY . .
 
 ENV REACT_APP_SERVER=https://desafiovollapi.herokuapp.com
+ENV PORT=3000
 RUN ["npm", "i"]
 RUN ["npm", "run", "build"]
 

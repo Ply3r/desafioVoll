@@ -2,14 +2,14 @@ version: '3'
 services:
   backend:
     build: ./backend/
-    image: tryberankdb
+    image: desafiovolldb
     volumes:
       - "./backend:/app"
     ports:
       - 5000:5000
   frontend:
     build: ./frontend
-    image: tryberank
+    image: desafiovoll
     volumes:
       - "./frontend:/app"
     ports:
