@@ -22,6 +22,13 @@ router
   .post(UserController.create);
 
 router
+  .route('/user/me')
+  .get(
+    verifyToken,
+    UserController.getCurrUser,
+  )
+
+router
   .route('/user/:id')
   .get(
     verifyToken,

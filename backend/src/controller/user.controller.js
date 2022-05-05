@@ -12,6 +12,14 @@ class UserController {
     }
   }
 
+  static async getCurrUser(req, res, next) {
+    try {
+      return res.status(200).json(req.user);
+    } catch (err) {
+      next();
+    }
+  }
+
   static async login(req, res, next) {
     try {
       const { email, password } = req.body;
