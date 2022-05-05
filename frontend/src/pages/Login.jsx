@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import axios from 'axios';
 import '../css/login.css';
+import { mainContext } from "../provider/mainProvider";
 
 const URL = process.env.REACT_APP_SERVER;
 
@@ -11,6 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [isButtonActive, setIsButtonActive] = useState(false);
   const [isInvalidLogin, setIsInvalidLogin] = useState(false);
+  const { setToken } = useContext(mainContext);
   const navigate = useNavigate();
 
   const showInvalidLoginMessage = () => {
@@ -30,7 +32,8 @@ const Login = () => {
 
   const makeRequest = async () => {
     await axios.post(URL + '/login', { email, password })
-      .then(() => {
+      .then(({ data: { token } }) => {
+        setToken(token);
         navigate('/home');
       })
       .catch((err) => {
