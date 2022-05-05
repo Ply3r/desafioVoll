@@ -1,0 +1,35 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and Deploy Front-end
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "desafiovoll"
+          heroku_email: "hsrleandro@hotmail.com"
+          appdir: client
+          usedocker: true
+          stack: container
+      - name: Build and Deploy Back-end
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "desafiovollapi"
+          heroku_email: "hsrleandro@hotmail.com"
+          appdir: server
+          usedocker: true
+          stack: container
+        env:
+          HD_DB_PASSWORD: ${{secrets.DB_PASSWORD}}
+          HD_ORIGIN: '*'
+          HD_SALT: ${{secrets.SALT}}
+          HD_TOKEN_KEY: ${{secrets.TOKEN_KEY}}

@@ -1,0 +1,8 @@
+build:
+  docker:
+    web: frontend/Dockerfile
+    backend: backend/Dockerfile
+release:
+  command:
+    - ./frontend/deploy/release.sh
+    - ./backend/deploy/release.sh
