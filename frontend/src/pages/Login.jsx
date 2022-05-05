@@ -34,7 +34,7 @@ const Login = () => {
     await axios.post(URL + '/login', { email, password })
       .then(({ data: { token } }) => {
         setToken(token);
-        navigate('/home');
+        navigate('/dashboard');
       })
       .catch((err) => {
         showInvalidLoginMessage()

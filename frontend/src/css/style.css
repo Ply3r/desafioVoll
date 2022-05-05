@@ -8,14 +8,13 @@
 }
 
 :root {
-  --mainColor: rgba(192,0,82,1);
+  --mainColor: rgb(192, 0, 82);
   --mainColorDisabled: rgb(192, 89, 134);
   --secondColor: rgba(60,0,92,1);
 }
 
 .hero-title {
   font-size: 3em;
-  margin: 15px;
 }
 
 .text-input {
@@ -44,4 +43,27 @@
 .bot:disabled {
   background-color: var(--mainColorDisabled);
   cursor: auto;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    top: -20%;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+.fade-in {
+  position: relative;
+  animation: fadeIn 1s ease;
+}
+
+.main-title {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }

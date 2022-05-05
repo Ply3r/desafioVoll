@@ -12,7 +12,10 @@ const verifyToken = async (req, res, next) => {
     }
   
     const { email, password } = Jwt.verify(authorization, secret);
-    const userExists = await User.findOne({ where: { email, password } })
+    const userExists = await User.findOne({ 
+      where: { email, password }, 
+      attributes: { exclude: ['password'] } 
+    })
   
     if (!userExists) {
       throw { status: 404, message: 'User not found' }
