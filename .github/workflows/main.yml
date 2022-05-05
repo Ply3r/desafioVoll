@@ -32,5 +32,5 @@ jobs:
           HD_DB_PASSWORD: ${{secrets.DB_PASSWORD}}
           HD_DB_USER: ${{secrets.DB_USER}}
           HD_DB_HOST: ${{secrets.DB_HOST}}
-          HD_DB_DATABASE: ${{secrets.DB_DATABASE}
+          HD_DB_DATABASE: ${{secrets.DB_DATABASE}}
           HD_SECRET: ${{secrets.SECRET}}
