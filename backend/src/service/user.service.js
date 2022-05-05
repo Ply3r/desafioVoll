@@ -35,13 +35,16 @@ class UserService {
   }
 
   static async findAll() {
-    const result = await User.findAll();
+    const result = await User.findAll({ attributes: { exclude: ['password'] } });
 
     return result;
   }
 
   static async findOne(id) {
-    const result = await User.findOne(id);
+    const result = await User.findOne({ 
+      where: { id }, 
+      attributes: { exclude: ['password'] } 
+    });
 
     return result;
   }
