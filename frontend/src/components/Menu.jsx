@@ -2,6 +2,7 @@ import { AiOutlineMenuUnfold, AiOutlineMenuFold } from 'react-icons/ai';
 import { MdDashboard } from 'react-icons/md';
 import { BsFillCartFill } from 'react-icons/bs';
 import { IoIosPaper } from 'react-icons/io';
+import { BiExit } from 'react-icons/bi';
 import { useLocation } from 'react-router-dom';
 import Icon from './Icon';
 
@@ -12,7 +13,7 @@ const Menu = ({ isMenuActive, setIsMenuActive }) => {
     <>
     
       <div 
-        style={ { 'width': `${isMenuActive ? '15vw' : '3vw'}` } }
+        style={ { 'width': `${isMenuActive ? '370px' : '30px'}` } }
         className="side-menu"
       >
         <div className="icon-container">
@@ -45,7 +46,7 @@ const Menu = ({ isMenuActive, setIsMenuActive }) => {
           <Icon 
             isMenuActive={ isMenuActive }
             currPage={ pathname } 
-            Component={ MdDashboard } 
+            Component={ BiExit } 
             path="/" 
           />
         </div>

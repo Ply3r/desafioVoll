@@ -3,6 +3,8 @@ import { mainContext } from '../provider/mainProvider';
 import { useNavigate } from "react-router-dom";
 import Loading from '../components/Loading.jsx';
 import MainContent from "../components/MainContent";
+import Balance from "../components/Balance";
+import ProductDashboard from "../components/ProductDashboard";
 import '../css/home.css';
 
 const Home = () => {
@@ -18,6 +20,10 @@ const Home = () => {
           <div className="main-title-container">
             <h1 className="hero-title login-title">Dashboard</h1>
             <p className="login-title">Welcome admin</p>
+            <div className="dashboard-itens-container">
+              <Balance />
+              <ProductDashboard />
+            </div>
           </div>
         </MainContent>
       </div>

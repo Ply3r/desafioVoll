@@ -1,6 +1,5 @@
 const MainTitle = ({ title }) => (
-  <div className="main-title">
-    <div className="gradient-home"/>
+  <div className="main-title-container">
     <h1 className="hero-title login-title">{ title }</h1>
   </div>
 );

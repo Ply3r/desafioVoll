@@ -13,6 +13,16 @@
   --secondColor: rgba(60,0,92,1);
 }
 
+a {
+  text-decoration: none;
+  color: inherit
+}
+
+body, #root {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
 .hero-title {
   font-size: 3em;
 }

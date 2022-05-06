@@ -12,7 +12,7 @@ const MainContent = ({ children }) => {
       />
       <div
         style={ { 
-          'marginLeft': `${isMenuActive ? '18vw' : '6vw'}`,
+          'marginLeft': `${isMenuActive ? '400px' : '80px'}`,
           'transition': 'inherit'
         } }
       >
