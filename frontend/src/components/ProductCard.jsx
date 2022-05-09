@@ -9,6 +9,7 @@ const ProductCard = ({ data }) => {
   const { token } = useContext(mainContext);
   const [purchased, setPurchased] = useState(false);
   const [error, setError] = useState(false);
+  const [isHover, setIsHover] = useState(false);
 
   const invalidBalance = () => {
     setError(true);
@@ -28,8 +29,12 @@ const ProductCard = ({ data }) => {
   }
 
   return (
-    <div className="product-card">
-      <img src={ data.image_1 } alt={ data.name } />
+    <div 
+      onMouseEnter={ () => setIsHover(true) }
+      onMouseLeave={ () => setIsHover(false) }
+      className="product-card"
+    >
+      <img src={ isHover ? data.image_2 :data.image_1 } alt={ data.name } />
       <h4>{ data.name }</h4>
       <p>{ `R$ ${data.price.toFixed(2)}`}</p>
       <p>{ `quantidade disponivel: ${data.quantity}` }</p>

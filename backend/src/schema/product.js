@@ -1,9 +1,10 @@
 const Joi = require('joi');
 
 const productSchema = Joi.object({
-  name: Joi.string().required().messages({
+  name: Joi.string().min(6).required().messages({
     'any.required': '400|"name" is required',
     'string.base': '400|"name" is a string',
+    'string.min': '400|"name" is at lest 6 characteres',
     'string.empty': '400|"name" is not allowed to be empty"',
   }),
   price: Joi.number().positive().required().messages({

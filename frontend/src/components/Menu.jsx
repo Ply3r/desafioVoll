@@ -1,12 +1,15 @@
 import { AiOutlineMenuUnfold, AiOutlineMenuFold } from 'react-icons/ai';
 import { MdDashboard } from 'react-icons/md';
-import { BsFillCartFill } from 'react-icons/bs';
+import { BsFillCartFill, BsFillCartPlusFill } from 'react-icons/bs';
 import { IoIosPaper } from 'react-icons/io';
 import { BiExit } from 'react-icons/bi';
 import { useLocation } from 'react-router-dom';
 import Icon from './Icon';
+import { useContext } from 'react';
+import { mainContext } from '../provider/mainProvider';
 
 const Menu = ({ isMenuActive, setIsMenuActive }) => {
+  const { user } = useContext(mainContext);
   const { pathname } = useLocation();
 
   return (
@@ -37,6 +40,16 @@ const Menu = ({ isMenuActive, setIsMenuActive }) => {
             Component={ BsFillCartFill } 
             path="/products" 
           />
+          {
+            user && user.role === 'admin' && (
+              <Icon 
+                isMenuActive={ isMenuActive }
+                currPage={ pathname } 
+                Component={ BsFillCartPlusFill } 
+                path="/products/add" 
+              />
+            ) 
+          }
           <Icon 
             isMenuActive={ isMenuActive }
             currPage={ pathname } 

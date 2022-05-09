@@ -9,7 +9,10 @@ class PurchaseService {
         { model: Product, as: 'product' },
         { model: User, as: 'user', attributes: { exclude: ['password'] } }
       ],
-      where: { user_id: id }
+      where: { user_id: id },
+      order: [
+        ['created_at', 'DESC'],
+    ],
     })
 
     return result;
