@@ -1,6 +1,6 @@
 const ProductService = require('../service/product.service');
 
-class ClothesController {
+class ProductController {
   static async create(req, res, next) {
     try {
       const {
@@ -44,4 +44,4 @@ class ClothesController {
   }
 };
 
-module.exports = ClothesController;
+module.exports = ProductController;

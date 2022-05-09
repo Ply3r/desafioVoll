@@ -40,7 +40,7 @@ class UserService {
     return result;
   }
 
-  static async findOne(id) {
+  static async findOne({ id }) {
     const result = await User.findOne({ 
       where: { id }, 
       attributes: { exclude: ['password'] } 

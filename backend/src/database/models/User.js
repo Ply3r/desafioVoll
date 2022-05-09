@@ -1,6 +1,12 @@
 const User = (sequelize, DataTypes) => {
   const User = sequelize.define("User", 
     {
+      id: {
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+        type: DataTypes.INTEGER,
+      },
       email: DataTypes.STRING,
       password: DataTypes.STRING,
       role: DataTypes.STRING,

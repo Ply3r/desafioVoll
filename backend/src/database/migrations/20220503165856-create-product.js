@@ -55,8 +55,42 @@ module.exports = {
         type: Sequelize.STRING
       },
     });
+
+    await queryInterface.createTable('purchase', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      user_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'users',
+          key: 'id'
+        }
+      },
+      product_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'product',
+          key: 'id'
+        }
+      },
+      created_at: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updated_at: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
+    });
   },
   async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('purchase');
     await queryInterface.dropTable('users');
     await queryInterface.dropTable('product');
   }

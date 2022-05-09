@@ -44,7 +44,7 @@ class UserController {
   static async findOne(req, res, next) {
     try {
       const { id } = req.params
-      const result = await UserService.findAll({ id: +id });
+      const result = await UserService.findOne({ id: +id });
 
       return res.status(200).json(result);
     } catch (err) {
