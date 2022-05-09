@@ -24,7 +24,8 @@ const MainProvider = ({ children }) => {
   const values = {
     user,
     token,
-    setToken
+    setToken,
+    getUser,
   }
 
   return (

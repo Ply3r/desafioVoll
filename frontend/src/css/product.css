@@ -23,6 +23,10 @@
 }
 
 .product-card > button {
+  display: flex;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
   color: white;
   background-color: var(--mainColor);
   border: none;

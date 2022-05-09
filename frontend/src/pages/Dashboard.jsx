@@ -1,13 +1,18 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { mainContext } from '../provider/mainProvider';
 import Loading from '../components/Loading.jsx';
 import MainContent from "../components/MainContent";
 import Balance from "../components/Balance";
 import ProductDashboard from "../components/ProductDashboard";
+import ExtractDashboard from "../components/ExtractDashboard";
 import '../css/home.css';
 
 const Home = () => {
-  const { user } = useContext(mainContext);
+  const { user, getUser } = useContext(mainContext);
+
+  useEffect(() => {
+    getUser();
+  }, [])
 
   const renderPage = () => (
     <>
@@ -21,6 +26,7 @@ const Home = () => {
               <Balance />
               <ProductDashboard user={ user } />
             </div>
+            <ExtractDashboard />
           </div>
         </MainContent>
       </div>

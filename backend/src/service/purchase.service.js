@@ -1,8 +1,10 @@
 const { Purchase, Product, User } = require('../database/models');
 
 class PurchaseService {
-  static async findAll({ id }) {
-    const result = await Purchase.findAll({ 
+  static async findAll({ id, page }) {
+    const result = await Purchase.findAll({
+      offset: 15 * page,
+      limit: 15,
       include: [
         { model: Product, as: 'product' },
         { model: User, as: 'user', attributes: { exclude: ['password'] } }
@@ -30,6 +32,11 @@ class PurchaseService {
       throw { status: 401, message: 'Insufficient balance!' }
     }
 
+    if (product.quantity - 1 < 0) {
+      throw { status: 401, message: 'Insufficient product quantity!' }
+    }
+
+    await Product.update({ quantity: product.quantity - 1 }, { where: { id: product.id } });
     await User.update({ balance: user.balance - product.price }, { where: { id: user.id } });
     const { dataValues: { insertId } } = await Purchase.create({ user_id, product_id });
 

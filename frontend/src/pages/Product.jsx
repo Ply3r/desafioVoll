@@ -13,7 +13,7 @@ const Product = () => {
   const { token } = useContext(mainContext);
   const [search, setSearch] = useState('');
   const [order, setOrder] = useState('name - ASC');
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState();
 
   const getProducts = async () => {
     await axios.get(URL + `/product?search=${search}&order=${order}`, { headers: { authorization: token } })
@@ -51,7 +51,7 @@ const Product = () => {
 
   return (
     <>
-      { !products.length ? <Loading /> : renderProductPage() }
+      { !products ? <Loading /> : renderProductPage() }
     </>
   );
 };

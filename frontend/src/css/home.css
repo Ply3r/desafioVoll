@@ -93,3 +93,30 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.extract-dashboard {
+  width: 50vw;
+  min-width: 375px;
+  height: 400px;
+  background-color: white;
+  border-radius: 30px;
+  padding: 25px;
+  overflow: auto;
+}
+
+.extract-dashboard table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.extract-dashboard table th {
+  color: var(--mainColor);
+  font-size: 1.2em;
+  padding: 15px;
+}
+
+.extract-dashboard table td {
+  text-align: center;
+  padding: 10px 2vw;
+  border-bottom: 2px solid var(--mainColor);
+}
