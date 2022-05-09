@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { mainContext } from '../provider/mainProvider';
-import { useNavigate } from "react-router-dom";
 import Loading from '../components/Loading.jsx';
 import MainContent from "../components/MainContent";
 import Balance from "../components/Balance";
@@ -9,20 +8,18 @@ import '../css/home.css';
 
 const Home = () => {
   const { user } = useContext(mainContext);
-  const navigate = useNavigate();
 
   const renderPage = () => (
     <>
-      { user.role !== 'admin' && navigate('/products') }
       <div className="page-home">
         <div className="gradient-home"/>
         <MainContent>
           <div className="main-title-container">
             <h1 className="hero-title login-title">Dashboard</h1>
-            <p className="login-title">Welcome admin</p>
+            <p className="login-title">{ `Welcome ${user.role}` }</p>
             <div className="dashboard-itens-container">
               <Balance />
-              <ProductDashboard />
+              <ProductDashboard user={ user } />
             </div>
           </div>
         </MainContent>

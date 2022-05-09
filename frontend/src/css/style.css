@@ -9,8 +9,26 @@
 
 :root {
   --mainColor: rgb(192, 0, 82);
+  --mainColorHover: rgb(158, 3, 70);
   --mainColorDisabled: rgb(192, 89, 134);
   --secondColor: rgba(60,0,92,1);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F0E10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mainColor);
+  border-radius: 10px;
 }
 
 a {
@@ -48,6 +66,10 @@ body, #root {
   color: white;
   padding: 10px;
   cursor: pointer;
+}
+
+.bot:hover {
+  background-color: var(--mainColorHover);
 }
 
 .bot:disabled {
