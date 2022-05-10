@@ -21,7 +21,7 @@ const ExtractDashboard = ({ page }) => {
 
       return (
         <tr>
-          <td>{ index + 1 + (pageIndex * 10) }</td>
+          <td>{ index + 1 + (pageIndex * 15) }</td>
           <td>{ data.product.name }</td>
           <td>{ `R$ ${data.product.price.toFixed(2)}` }</td>
           <td>{ extractData.toUTCString() }</td>

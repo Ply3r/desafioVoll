@@ -15,9 +15,10 @@ class PurchaseController {
 
   static async findAll(req, res, next) {
     try {
-      const { page } = req.params;
+      const { page } = req.query;
       const { id } = req.user
-      const result = await PurchaseService.findAll({ id, page: page || 0 });
+
+      const result = await PurchaseService.findAll({ id, page });
 
       return res.status(200).json(result);
     } catch (err) {

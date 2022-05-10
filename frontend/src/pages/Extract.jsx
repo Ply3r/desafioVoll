@@ -13,7 +13,7 @@ const ExtractPage = () => {
 
   const getPages = async () => {
     await axios.get(URL + '/purchase', { headers: { authorization: token } })
-      .then(({ data }) => setTotalPages(data.length));
+      .then(({ data }) => setTotalPages(Math.round(data.length / 15)));
   }
 
   const renderPageButtons = () => {
@@ -21,7 +21,12 @@ const ExtractPage = () => {
 
     for (let index = 0; index < totalPages; index += 1) {
       elements.push(
-        <button onClick={ () => setPage(index) }>{ index + 1 }</button>
+        <button
+          className={ `${page === index ? 'page-bot-active' : ''}` }
+          onClick={ () => setPage(index) }
+        >
+          { index + 1 }
+        </button>
       )
     }
 
@@ -41,7 +46,9 @@ const ExtractPage = () => {
           <div className="extract-page">
             <ExtractDashboard page={ page } />
           </div>
-          { totalPages > 0 && renderPageButtons() }
+          <div className="page-buttons">
+            { totalPages > 0 && renderPageButtons() }
+          </div>
         </div>
       </MainContent>
     </div>

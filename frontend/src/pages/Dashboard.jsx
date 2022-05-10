@@ -26,7 +26,7 @@ const Home = () => {
               <Balance />
               <ProductDashboard user={ user } />
             </div>
-            <ExtractDashboard />
+            <ExtractDashboard page={ 0 } />
           </div>
         </MainContent>
       </div>

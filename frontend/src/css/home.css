@@ -134,3 +134,30 @@
 .extract-page h1 {
   display: none;
 }
+
+.page-buttons {
+  display: flex;
+}
+
+.page-buttons > button {
+  width: 48px;
+  height: 48px;
+  background-color: transparent;
+  border: 2px solid var(--mainColor);
+  color: var(--mainColor);
+  font-size: 1.5em;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 3px;
+  transition: .5s ease;
+}
+
+.page-buttons > button:hover {
+  background-color: var(--mainColor);
+  color: white;
+}
+
+.page-bot-active {
+  background-color: var(--mainColor) !important;
+  color: white !important;
+}
