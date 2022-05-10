@@ -37,7 +37,7 @@ class PurchaseService {
     })
 
     const limitedResult = result.filter((_data, index) => {
-      return index > 15 * page && index < 15 - (page + 1);
+      return index > 15 * page && index < 15 * (page + 1);
     })
 
     return limitedResult;
