@@ -25,20 +25,22 @@ class PurchaseService {
       return result;
     }
 
-    const result = await Purchase.findAll({
-      order: [
-        ['created_at', 'DESC'],
-      ],
-      offset: 15 * page,
-      limit: 15,
+    const { dataValues } = await Purchase.findAll({
       include: [
         { model: Product, as: 'product' },
         { model: User, as: 'user', attributes: { exclude: ['password'] } }
       ],
       where: { user_id: id },
+      order: [
+        ['created_at', 'DESC'],
+      ],
     })
 
-    return result;
+    const limitedResult = dataValues.filter((_data, index) => {
+      return index > 15 * page && index < 15 - (page + 1);
+    })
+
+    return limitedResult;
   }
 
   static async purchase({ user_id, product_id }) {
