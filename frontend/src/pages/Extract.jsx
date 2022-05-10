@@ -25,7 +25,7 @@ const ExtractPage = () => {
           className={ `${page === index ? 'page-bot-active' : ''}` }
           onClick={ () => setPage(index) }
         >
-          { index }
+          { index + 1 }
         </button>
       )
     }
