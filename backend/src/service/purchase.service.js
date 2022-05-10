@@ -25,7 +25,7 @@ class PurchaseService {
       return result;
     }
 
-    const { dataValues } = await Purchase.findAll({
+    const result = await Purchase.findAll({
       include: [
         { model: Product, as: 'product' },
         { model: User, as: 'user', attributes: { exclude: ['password'] } }
@@ -36,7 +36,7 @@ class PurchaseService {
       ],
     })
 
-    const limitedResult = dataValues.filter((_data, index) => {
+    const limitedResult = result.filter((_data, index) => {
       return index > 15 * page && index < 15 - (page + 1);
     })
 
