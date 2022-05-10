@@ -29,7 +29,7 @@ const Product = () => {
         <div className="gradient-home"/>
         <MainContent>
           <div className="main-title-container">
-            <h1 className="hero-title login-title">Products</h1>
+            <h1 className="hero-title login-title">Produtos</h1>
             <FilterContainer 
               search={ search }
               order={ order }

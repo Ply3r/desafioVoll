@@ -13,6 +13,13 @@ router
   );
 
 router
+  .route('/purchase/pages')
+  .get(
+    verifyToken,
+    PurchaseController.getPages
+  );
+
+router
   .route('/purchase/:id')
   .post(
     verifyToken,

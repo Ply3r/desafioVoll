@@ -31,7 +31,7 @@ const Balance = () => {
 
   return (
     <div className="balance-container">
-      <h1 className="login-title">Balance</h1>
+      <h1 className="login-title">Saldo</h1>
       <div className="balance-inner-container">
         <div>
           <p>Saldo Total</p>

@@ -1,7 +1,30 @@
 const { Purchase, Product, User } = require('../database/models');
 
 class PurchaseService {
+  static async getPages({ id }) {
+    const { dataValues } = await Purchase.findAll({
+      where: { user_id: id },
+    });
+
+    return dataValues.length;
+  }
+
   static async findAll({ id, page }) {
+    if (!page) {
+      const result = await Purchase.findAll({
+        include: [
+          { model: Product, as: 'product' },
+          { model: User, as: 'user', attributes: { exclude: ['password'] } }
+        ],
+        where: { user_id: id },
+        order: [
+          ['created_at', 'DESC'],
+        ],
+      })
+
+      return result;
+    }
+
     const result = await Purchase.findAll({
       offset: 15 * page,
       limit: 15,
@@ -12,7 +35,7 @@ class PurchaseService {
       where: { user_id: id },
       order: [
         ['created_at', 'DESC'],
-    ],
+      ],
     })
 
     return result;
