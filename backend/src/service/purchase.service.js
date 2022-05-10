@@ -26,6 +26,9 @@ class PurchaseService {
     }
 
     const result = await Purchase.findAll({
+      order: [
+        ['created_at', 'DESC'],
+      ],
       offset: 15 * page,
       limit: 15,
       include: [
@@ -33,9 +36,6 @@ class PurchaseService {
         { model: User, as: 'user', attributes: { exclude: ['password'] } }
       ],
       where: { user_id: id },
-      order: [
-        ['created_at', 'DESC'],
-      ],
     })
 
     return result;

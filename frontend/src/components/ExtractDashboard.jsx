@@ -16,7 +16,7 @@ const ExtractDashboard = ({ page }) => {
 
   const renderRows = () => {
     const elements = history.map((data, index) => {
-      const pageIndex = page ? page : 0;
+      const pageIndex = page ? page - 1 : 0;
       const extractData = new Date(data.createdAt);
 
       return (

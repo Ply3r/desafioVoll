@@ -9,7 +9,7 @@ const URL = process.env.REACT_APP_SERVER;
 const ExtractPage = () => {
   const { token } = useContext(mainContext);
   const [totalPages, setTotalPages] = useState(0);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
   const getPages = async () => {
     await axios.get(URL + '/purchase', { headers: { authorization: token } })
@@ -19,13 +19,13 @@ const ExtractPage = () => {
   const renderPageButtons = () => {
     const elements = [];
 
-    for (let index = 0; index < totalPages; index += 1) {
+    for (let index = 1; index < totalPages; index += 1) {
       elements.push(
         <button
           className={ `${page === index ? 'page-bot-active' : ''}` }
           onClick={ () => setPage(index) }
         >
-          { index + 1 }
+          { index }
         </button>
       )
     }
