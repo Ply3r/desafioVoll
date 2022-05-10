@@ -12,6 +12,7 @@ class PurchaseService {
   static async findAll({ id, page }) {
     if (!page) {
       const result = await Purchase.findAll({
+        where: { user_id: id },
         order: [
           ['created_at', 'DESC'],
         ],
@@ -19,23 +20,22 @@ class PurchaseService {
           { model: Product, as: 'product' },
           { model: User, as: 'user', attributes: { exclude: ['password'] } }
         ],
-        where: { user_id: id },
       })
 
       return result;
     }
 
-    const { dataValues } = await Purchase.findAll({
+    const result = await Purchase.findAndCountAll({
+      where: { user_id: id },
       order: [
         ['created_at', 'DESC'],
       ],
-      offset: 15 * page,
-      limit: 15,
       include: [
         { model: Product, as: 'product' },
         { model: User, as: 'user', attributes: { exclude: ['password'] } }
       ],
-      where: { user_id: id },
+      offset: 15 * page,
+      limit: 15,
     })
 
     return result;
