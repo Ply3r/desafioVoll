@@ -13,7 +13,7 @@ const ExtractPage = () => {
 
   const getPages = async () => {
     await axios.get(URL + '/purchase', { headers: { authorization: token } })
-      .then(({ data }) => setTotalPages(Math.round(data.length / 15)));
+      .then(({ data }) => setTotalPages(Math.ceil(data.length / 15)));
   }
 
   const renderPageButtons = () => {
