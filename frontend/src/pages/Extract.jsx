@@ -19,7 +19,7 @@ const ExtractPage = () => {
   const renderPageButtons = () => {
     const elements = [];
 
-    for (let index = 1; index < totalPages; index += 1) {
+    for (let index = 0; index < totalPages; index += 1) {
       elements.push(
         <button
           className={ `${page === index ? 'page-bot-active' : ''}` }

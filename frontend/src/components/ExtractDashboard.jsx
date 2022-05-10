@@ -9,14 +9,16 @@ const ExtractDashboard = ({ page }) => {
   const [history, setHistory] = useState();
 
   const getHistory = async () => {
-    await axios.get(URL + `/purchase${page ? `?page=${page}` : ''}`, { headers: { authorization: token } })
-      .then(({ data }) => setHistory(data))
+    await axios.get(URL + `/purchase${page >= 0 ? `?page=${page}` : ''}`, { headers: { authorization: token } })
+      .then(({ data: { rows } }) => {
+        setHistory(rows);
+      })
       .catch(() => { })
   }
 
   const renderRows = () => {
     const elements = history.map((data, index) => {
-      const pageIndex = page ? page - 1 : 0;
+      const pageIndex = page ? page : 0;
       const extractData = new Date(data.createdAt);
 
       return (
