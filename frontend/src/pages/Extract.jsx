@@ -9,7 +9,7 @@ const URL = process.env.REACT_APP_SERVER;
 const ExtractPage = () => {
   const { token } = useContext(mainContext);
   const [totalPages, setTotalPages] = useState(0);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
 
   const getPages = async () => {
     await axios.get(URL + '/purchase', { headers: { authorization: token } })
